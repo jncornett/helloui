@@ -25,6 +25,10 @@ export default {
             plugins: [ 'react-hot-loader/babel' ]
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'] // FIXME prod
       }
     ]
   },
@@ -34,6 +38,14 @@ export default {
       chunks: 'all'
     }
   },
+  devServer: {
+    historyApiFallback: true,
+    overlay: {
+      warnings: true,
+      errors: true
+    }
+  },
+  devtool: 'cheap-module-eval-source-map',
   plugins: [
     new webpack.ProvidePlugin({ React: 'react' }),
     new HtmlWebpackPlugin({ template: 'src/index.html' })
