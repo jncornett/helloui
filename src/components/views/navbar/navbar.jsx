@@ -1,7 +1,7 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { c } from '../../../utils.jsx'
+import { c } from '../../core/utils.jsx'
 
 import './navbar.css'
 
