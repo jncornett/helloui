@@ -18,7 +18,7 @@ export default {
           options: {
             babelrc: false,
             presets: [
-              ['env', { modules: false /* FIXME prod */}],
+              [ 'env', { modules: false } ],
               'stage-0',
               'react'
             ],
@@ -28,7 +28,7 @@ export default {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'] // FIXME prod
+        use: [ 'style-loader', 'css-loader' ]
       }
     ]
   },
@@ -47,7 +47,6 @@ export default {
   },
   devtool: 'cheap-module-eval-source-map',
   plugins: [
-    new webpack.ProvidePlugin({ React: 'react' }),
     new HtmlWebpackPlugin({ template: 'src/index.html' })
   ]
 }

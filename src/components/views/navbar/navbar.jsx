@@ -12,13 +12,13 @@ function Logo() {
         cx="25" cy="25" r="20"
         fill="none"
         stroke="black"
-        stroke-width="10"
+        strokeWidth="10"
       />
       <circle
         cx="30" cy="25" r="10"
         fill="none"
         stroke="black"
-        stroke-width="5"
+        strokeWidth="5"
       />
     </svg>
   )

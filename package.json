@@ -16,6 +16,7 @@
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^22.4.3",
     "react": "^16.3.1",
@@ -29,9 +30,9 @@
     "webpack-dev-server": "^3.1.3"
   },
   "scripts": {
-    "build:dev": "webpack",
-    "build:prod": "webpack --mode=production",
-    "start": "webpack-dev-server --hot",
+    "build:dev": "webpack --config=./webpack.config.dev.babel.js",
+    "build": "webpack --config=./webpack.config.prod.babel.js --optimize-minimize",
+    "start": "webpack-dev-server --hot --config=./webpack.config.dev.babel.js",
     "test": "jest"
   }
 }
