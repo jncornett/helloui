@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { c } from './utils.jsx'
 
 export default function Icon({ className, icon, ...rest }) {
