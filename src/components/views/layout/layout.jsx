@@ -1,11 +1,9 @@
-import { Link, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
-import Navbar from '../navbar/navbar.jsx'
-import Dashboard from '../dashboard/dashboard.jsx'
+import Navbar from '../navbar/navbar'
+import Dashboard from '../dashboard/dashboard'
 
 import './layout.css'
-
-import Icon from '../../core/icon.jsx'
 
 export default function Layout() {
   return (

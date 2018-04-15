@@ -1,9 +1,16 @@
-import { c } from './utils.jsx'
+import { c } from './utils'
 
-export default function Icon({ className, icon, ...rest }) {
+function Icon({ className, icon, ...rest }) {
   return (
-    <span className={c(className, "icon")}>
+    <span className={c(className, 'icon')} {...rest}>
       <i className={`fas fa-${icon}`} />
     </span>
   )
 }
+
+Icon.propTypes = {
+  className: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+}
+
+export default Icon

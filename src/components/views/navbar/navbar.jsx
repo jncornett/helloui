@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-import { c } from '../../core/utils.jsx'
+import { c } from '../../core/utils'
 
 import './navbar.css'
 
@@ -8,13 +8,17 @@ function Logo() {
   return (
     <svg width="60" height="50">
       <circle
-        cx="25" cy="25" r="20"
+        cx="25"
+        cy="25"
+        r="20"
         fill="none"
         stroke="black"
         strokeWidth="10"
       />
       <circle
-        cx="30" cy="25" r="10"
+        cx="30"
+        cy="25"
+        r="10"
         fill="none"
         stroke="black"
         strokeWidth="5"
@@ -44,21 +48,27 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+      <nav className="navbar" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
             <Logo />
             <h1 className="title">hello UI</h1>
           </a>
-          <a role="button" className="navbar-burger"
-              aria-label="menu" aria-expanded="false"
-              onClick={() => this.setState({ menuExpanded: !this.state.menuExpanded })}>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a
+            role="button"
+            tabIndex="0"
+            className="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            onClick={() => this.setState({ menuExpanded: !this.state.menuExpanded })}
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
           </a>
         </div>
-        <div className={c("navbar-menu", this.state.menuExpanded && "is-active")}>
+        <div className={c('navbar-menu', this.state.menuExpanded && 'is-active')}>
           <div className="navbar-start">
             <NavLink className="navbar-item" to="/dashboard">dashboard</NavLink>
             <NavLink className="navbar-item" to="/settings">settings</NavLink>

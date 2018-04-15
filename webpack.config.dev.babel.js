@@ -27,6 +27,17 @@ export default {
         }
       },
       {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        use: {
+          loader: 'eslint-loader',
+          options: {
+            emitWarning: true
+          }
+        }
+      },
+      {
         test: /\.css$/,
         use: [ 'style-loader', 'css-loader' ]
       }
@@ -50,7 +61,11 @@ export default {
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
     new webpack.ProvidePlugin({
       React: 'react',
-      Component: ['react', 'Component']
+      Component: ['react', 'Component'],
+      PropTypes: 'prop-types'
     })
-  ]
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
 }
