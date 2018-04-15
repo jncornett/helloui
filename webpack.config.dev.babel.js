@@ -47,6 +47,10 @@ export default {
   },
   devtool: 'cheap-module-eval-source-map',
   plugins: [
-    new HtmlWebpackPlugin({ template: 'src/index.html' })
+    new HtmlWebpackPlugin({ template: 'src/index.html' }),
+    new webpack.ProvidePlugin({
+      React: 'react',
+      Component: ['react', 'Component']
+    })
   ]
 }
