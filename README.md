@@ -2,10 +2,103 @@
 
 ## TODO
 
-- add eslint (opinionated rules)
 - add component generator script(s)
+- add documentation generation (dev-facing)
 - add pages for each aspect of the project (tests, build, etc)
+- add standalone site packaging (mock out api with serviceworker)
+- add auth integration
+- add redux integration
+- add api "integration"
+  - rollup every API (i.e. non-static call) under /api/ endpoint
+  - make sure API can be easily and arbitrarily mocked in dev mode
+  - commit to a particular scheme (i.e. REST, GraphQL)?
 
 ## Notes
 
 - whole thing should be quite opinionated. There is a high probability that our opinions are wrong (or will be wrong in the future). this is ok. adapt the project for change.
+- "developer first" ideology
+  - stateful HMR
+  - all APIs are mockable (must have clean separation of API from view/model)
+  - should be able to run different parts on multiple hosts (i.e. index.html, static assets, api)
+  - auth should also be configurable appropriately (must have clean separation of auth layers from view/model)
+- "design/review first" ideology 
+  - ability to package/distribute application "snapshot" with appropriate mocks to demo functionality
+  - dev/design-oriented documentation generation (possibly)
+- testability
+  - ship with integ testing
+  - ship with canary tps runner
+  - integ should profile performance (i.e. page load time, time to first paint) 
+- all the important features, taken care of:
+  - these "features" can either be in the form of "HOWTO" examples (as doc pages), or
+    imposed out-of-the-box code.
+  - accessibility warnings, accessible components (an argument for imposing CSS framework)
+  - serviceworker
+  - profiling/instrumentation of end-user performance
+  - static demos
+  - browser targeting
+  - authN/authZ view logic (authN should be a separate layer, authZ should be imposed by the API, but authZ view logic is for good UX)
+  - canaries
+  - integ testing
+  - metrics instrumentation
+- "zero config"
+  - 0 conf of build boilerplate
+  - examples denote app structure clearly (location/structure of all functionality is well defined)
+  - linting/testing out of the box
+  - expose "some" config for:
+    - piecewise dependency mocking (e.g. api mocking)
+    - build targets (expose env:target for babel preset)
+    - customize eslint rules
+  - customization points:
+    - "minimal" config (above)
+    - components used
+    - redux reducers used
+    - CSS framework
+      - I'm leaning towards allowing devs to craft/import their own CSSframework-aware components, rather than imposing a single one.
+      - alternatively, we can impose a single framework (ex: bootstrap), and allow theming customization points.
+
+- opinions (tech)
+  - Single page app (including index.html FIXME CSRF??)
+    - best deployment story
+    - supports ServiceWorker
+    - need to pick something
+  - Strict "gating" of server-side functionality via /api/ endpoint
+    - easier mocks
+    - enforces standalone app
+    - need to pick something (again)
+  - React
+    - components!
+    - minimize surface area of state
+    - good community support
+  - Redux
+    - minimize surface area of state
+    - scales well (overkill for small apps, but if you already have it setup for you, no problem)
+  - React-router
+    - plays well with react
+  - Jest
+    - no fuss testing
+  - Enzyme
+    - makes react components testable
+  - ESLint
+    - airbnb rules
+    - JSX a11y
+    - gate production with requirement of 0 warnings/errors
+  - Babel, stage-0, env presets
+  - Plain CSS
+    - maybe make exception for bootstrap theming, but CSS variables and other new CSS goodness
+      makes using a preprocessor increasingly less compelling
+  - Agnostic authN/authZ
+    - enforce clean separation of view logic from auth
+    - more amenable to standalone/mocking/demos
+  - Bundle everything (no CDNs/externals)
+    - really outside the scope of this project anyway (dev can opt to CDN bundle, if they choose)
+    - simpler deployment story 
+    - for firefox/chrome, serviceworker can achieve same purpose
+  - Declarative D3
+    - Should be a "HOWTO", separate project
+  - CSS transitions/animations
+  - Push as much as possible to CSS and outside of javascript
+  - Relaxed javascript (ESNext, no semicolons, no typescript)
+    - more flexible
+    - use unit tests, not type systems
+    - devs can customize eslint rules to opt in for semicolons
+    - why would you want to opt out of ESNext (babel has us covered)
