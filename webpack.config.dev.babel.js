@@ -5,7 +5,6 @@ export default {
   mode: 'development',
   entry: [
     'babel-polyfill',
-    'react-hot-loader/patch',
     './src/index.jsx'
   ],
   module: {
