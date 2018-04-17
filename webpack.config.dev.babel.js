@@ -17,7 +17,7 @@ export default {
           options: {
             babelrc: false,
             presets: [
-              [ 'env', { modules: false } ],
+              'env',
               'stage-0',
               'react'
             ],
