@@ -1,0 +1,10 @@
+{
+  "browserTargets": [
+    "last 2 versions"
+  ],
+  "globals": {
+    "React": "react",
+    "Component": ["react", "Component"],
+    "PropTypes": "prop-types"
+  }
+}
